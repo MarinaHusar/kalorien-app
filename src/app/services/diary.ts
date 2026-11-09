@@ -20,13 +20,35 @@ export class Diary {
   entries: FoodEntry[] = [];
   private nextId = 1;
 
+  constructor() {
+    this.load();
+  }
+
+  private get storageKey(): string {
+    return "diary-" + new Date().toLocaleDateString("sv-SE");
+  }
+
+  private load(): void {
+    const saved = localStorage.getItem(this.storageKey);
+    if (saved) {
+      this.entries = JSON.parse(saved);
+      this.nextId = Math.max(0, ...this.entries.map((entry) => entry.id)) + 1;
+    }
+  }
+
+  private save(): void {
+    localStorage.setItem(this.storageKey, JSON.stringify(this.entries));
+  }
+
   addEntry(entry: Omit<FoodEntry, "id">): void {
     this.entries.push({ ...entry, id: this.nextId });
     this.nextId++;
+    this.save();
   }
 
   removeEntry(id: number): void {
     this.entries = this.entries.filter((entry) => entry.id !== id);
+    this.save();
   }
 
   getMealCalories(meal: MealType): number {
