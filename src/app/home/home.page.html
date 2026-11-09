@@ -5,9 +5,33 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <h1>{{ remainingCalories }}</h1>
-  <p>kcal übrig (Ziel: {{ profile.targets.calories }})</p>
-
+  <div class="ring-wrapper">
+    <svg width="180" height="180" viewBox="0 0 128 128" class="ring">
+      <circle
+        cx="64"
+        cy="64"
+        r="54"
+        fill="none"
+        stroke="#2b3949"
+        stroke-width="12"
+      ></circle>
+      <circle
+        cx="64"
+        cy="64"
+        r="54"
+        fill="none"
+        stroke="#5bd6a0"
+        stroke-width="12"
+        stroke-linecap="round"
+        [attr.stroke-dasharray]="ringDash"
+      ></circle>
+    </svg>
+    <div class="ring-text">
+      <span class="ring-number">{{ remainingCalories }}</span>
+      <span class="ring-label">kcal übrig</span>
+    </div>
+  </div>
+  <p class="ion-text-center">Ziel: {{ profile.targets.calories }} kcal</p>
   <h2>Nährstoffe</h2>
   <p>
     Eiweiß: {{ diary.getTotals().protein }} / {{ profile.targets.protein }} g

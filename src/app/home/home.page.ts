@@ -23,4 +23,11 @@ export class HomePage {
   get remainingCalories(): number {
     return this.profile.targets.calories - this.diary.getTotals().calories;
   }
+  get ringDash(): string {
+    const target = this.profile.targets.calories;
+    const eaten = this.diary.getTotals().calories;
+    const progress = Math.min(eaten / target, 1);
+    const circumference = 339.3;
+    return `${progress * circumference} ${circumference}`;
+  }
 }

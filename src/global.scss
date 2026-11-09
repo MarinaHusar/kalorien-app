@@ -34,4 +34,15 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+@import "@ionic/angular/css/palettes/dark.always.css";
+
+:root,
+:root.ios,
+:root.md {
+  --ion-background-color: #0f1720;
+  --ion-background-color-rgb: 15, 23, 32;
+  --ion-text-color: #f2f5f7;
+  --ion-text-color-rgb: 242, 245, 247;
+  --ion-toolbar-background: #0f1720;
+  --ion-item-background: #1b2531;
+}
