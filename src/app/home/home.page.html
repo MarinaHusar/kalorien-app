@@ -1,26 +1,25 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title> Blank </ion-title>
+    <ion-title>Mein Kalorientagebuch</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <h1>{{ remainingCalories }}</h1>
+  <p>kcal übrig (Ziel: {{ profile.targets.calories }})</p>
 
-  <div id="container">
-    <strong>Mein Kalorientagebuch</strong>
-    <p>
-      Start with Ionic
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://ionicframework.com/docs/components"
-        >UI Components</a
-      >
-    </p>
-  </div>
+  <h2>Nährstoffe</h2>
+  <p>
+    Eiweiß: {{ diary.getTotals().protein }} / {{ profile.targets.protein }} g
+  </p>
+  <p>Fett: {{ diary.getTotals().fat }} / {{ profile.targets.fat }} g</p>
+  <p>
+    Kohlenhydrate: {{ diary.getTotals().carbs }} / {{ profile.targets.carbs }} g
+  </p>
+
+  <h2>Mahlzeiten</h2>
+  <p>Frühstück: {{ diary.getMealCalories('breakfast') }} kcal</p>
+  <p>Mittagessen: {{ diary.getMealCalories('lunch') }} kcal</p>
+  <p>Abendessen: {{ diary.getMealCalories('dinner') }} kcal</p>
+  <p>Snack: {{ diary.getMealCalories('snack') }} kcal</p>
 </ion-content>

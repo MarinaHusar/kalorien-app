@@ -1,6 +1,7 @@
 import { Component, inject } from "@angular/core";
 import { IonHeader, IonToolbar, IonTitle, IonContent } from "@ionic/angular";
-import { Calculator } from "../services/calculator";
+import { Diary } from "../services/diary";
+import { UserProfile } from "../services/user-profile";
 
 @Component({
   selector: "app-home",
@@ -9,14 +10,25 @@ import { Calculator } from "../services/calculator";
   imports: [IonHeader, IonToolbar, IonTitle, IonContent],
 })
 export class HomePage {
-  private calculator = inject(Calculator);
+  diary = inject(Diary);
+  profile = inject(UserProfile);
 
   constructor() {
-    const bmr = this.calculator.calculateBmr("female", 30, 168, 60);
-    const tdee = this.calculator.calculateTdee(bmr, "moderate");
-    console.log("BMR:", bmr);
-    console.log("TDEE:", tdee);
-    const targets = this.calculator.calculateTargets(tdee, "lose", 60);
-    console.log("Targets:", targets);
+    // Temporary test data, we will remove it later
+    if (this.diary.entries.length === 0) {
+      this.diary.addEntry({
+        name: "Test lunch",
+        meal: "lunch",
+        grams: 280,
+        calories: 245,
+        protein: 6,
+        fat: 7,
+        carbs: 37,
+      });
+    }
+  }
+
+  get remainingCalories(): number {
+    return this.profile.targets.calories - this.diary.getTotals().calories;
   }
 }
