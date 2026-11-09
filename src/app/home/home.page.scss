@@ -112,3 +112,15 @@
   font-size: 13px;
   color: var(--ion-color-medium);
 }
+ion-button {
+  --border-radius: 14px;
+}
+
+.meal-card ion-button {
+  --border-radius: 50%;
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+}
