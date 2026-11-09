@@ -13,6 +13,10 @@ export class HomePage {
 
   constructor() {
     const bmr = this.calculator.calculateBmr("female", 30, 168, 60);
+    const tdee = this.calculator.calculateTdee(bmr, "moderate");
     console.log("BMR:", bmr);
+    console.log("TDEE:", tdee);
+    const targets = this.calculator.calculateTargets(tdee, "lose", 60);
+    console.log("Targets:", targets);
   }
 }
