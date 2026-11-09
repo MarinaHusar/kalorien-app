@@ -12,6 +12,8 @@ import {
   IonSelectOption,
   IonTitle,
   IonToolbar,
+  IonBackButton,
+  IonButtons,
 } from "@ionic/angular";
 import { Diary, MealType } from "../services/diary";
 
@@ -31,6 +33,8 @@ import { Diary, MealType } from "../services/diary";
     IonTitle,
     IonToolbar,
     FormsModule,
+    IonBackButton,
+    IonButtons,
   ],
 })
 export class AddFoodPage {
