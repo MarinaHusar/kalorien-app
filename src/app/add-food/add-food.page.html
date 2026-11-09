@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Produkt hinzufügen</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-input label="Name" [(ngModel)]="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select label="Mahlzeit" [(ngModel)]="meal">
+        <ion-select-option value="breakfast">Frühstück</ion-select-option>
+        <ion-select-option value="lunch">Mittagessen</ion-select-option>
+        <ion-select-option value="dinner">Abendessen</ion-select-option>
+        <ion-select-option value="snack">Snack</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Menge (g)"
+        type="number"
+        [(ngModel)]="grams"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="kcal pro 100 g"
+        type="number"
+        [(ngModel)]="caloriesPer100"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Eiweiß pro 100 g"
+        type="number"
+        [(ngModel)]="proteinPer100"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Fett pro 100 g"
+        type="number"
+        [(ngModel)]="fatPer100"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Kohlenhydrate pro 100 g"
+        type="number"
+        [(ngModel)]="carbsPer100"
+      ></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" (click)="save()">Hinzufügen</ion-button>
+</ion-content>
