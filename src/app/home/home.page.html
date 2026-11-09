@@ -33,13 +33,47 @@
   </div>
   <p class="ion-text-center">Ziel: {{ profile.targets.calories }} kcal</p>
   <h2>Nährstoffe</h2>
-  <p>
-    Eiweiß: {{ diary.getTotals().protein }} / {{ profile.targets.protein }} g
-  </p>
-  <p>Fett: {{ diary.getTotals().fat }} / {{ profile.targets.fat }} g</p>
-  <p>
-    Kohlenhydrate: {{ diary.getTotals().carbs }} / {{ profile.targets.carbs }} g
-  </p>
+
+  <div class="macro">
+    <div class="macro-header">
+      <span>Eiweiß</span>
+      <span
+        >{{ diary.getTotals().protein }} / {{ profile.targets.protein }} g</span
+      >
+    </div>
+    <div class="bar">
+      <div
+        class="bar-fill protein"
+        [style.width.%]="percent(diary.getTotals().protein, profile.targets.protein)"
+      ></div>
+    </div>
+  </div>
+
+  <div class="macro">
+    <div class="macro-header">
+      <span>Fett</span>
+      <span>{{ diary.getTotals().fat }} / {{ profile.targets.fat }} g</span>
+    </div>
+    <div class="bar">
+      <div
+        class="bar-fill fat"
+        [style.width.%]="percent(diary.getTotals().fat, profile.targets.fat)"
+      ></div>
+    </div>
+  </div>
+
+  <div class="macro">
+    <div class="macro-header">
+      <span>Kohlenhydrate</span>
+      <span>{{ diary.getTotals().carbs }} / {{ profile.targets.carbs }} g</span>
+    </div>
+    <div class="bar">
+      <div
+        class="bar-fill carbs"
+        [style.width.%]="percent(diary.getTotals().carbs, profile.targets.carbs)"
+      ></div>
+    </div>
+  </div>
 
   <h2>Mahlzeiten</h2>
   <p>Frühstück: {{ diary.getMealCalories('breakfast') }} kcal</p>

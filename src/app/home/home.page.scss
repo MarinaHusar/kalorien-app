@@ -54,3 +54,36 @@
   font-size: 14px;
   color: var(--ion-color-medium);
 }
+.macro {
+  margin-bottom: 14px;
+}
+
+.macro-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.bar {
+  height: 8px;
+  border-radius: 4px;
+  background: #2b3949;
+}
+
+.bar-fill {
+  height: 8px;
+  border-radius: 4px;
+}
+
+.protein {
+  background: #6cb6ff;
+}
+
+.fat {
+  background: #f2a65a;
+}
+
+.carbs {
+  background: #5bd6a0;
+}

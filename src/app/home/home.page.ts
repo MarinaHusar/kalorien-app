@@ -30,4 +30,7 @@ export class HomePage {
     const circumference = 339.3;
     return `${progress * circumference} ${circumference}`;
   }
+  percent(value: number, target: number): number {
+    return Math.min((value / target) * 100, 100);
+  }
 }
