@@ -76,10 +76,66 @@
   </div>
 
   <h2>Mahlzeiten</h2>
-  <p>Frühstück: {{ diary.getMealCalories('breakfast') }} kcal</p>
-  <p>Mittagessen: {{ diary.getMealCalories('lunch') }} kcal</p>
-  <p>Abendessen: {{ diary.getMealCalories('dinner') }} kcal</p>
-  <p>Snack: {{ diary.getMealCalories('snack') }} kcal</p>
+
+  <div class="meals">
+    <div class="meal-card">
+      <div>
+        <div class="meal-name">Frühstück</div>
+        <div class="meal-kcal">
+          {{ diary.getMealCalories('breakfast') }} kcal
+        </div>
+      </div>
+      <ion-button
+        size="small"
+        shape="round"
+        routerLink="/add-food"
+        [queryParams]="{ meal: 'breakfast' }"
+        >+</ion-button
+      >
+    </div>
+
+    <div class="meal-card">
+      <div>
+        <div class="meal-name">Mittagessen</div>
+        <div class="meal-kcal">{{ diary.getMealCalories('lunch') }} kcal</div>
+      </div>
+      <ion-button
+        size="small"
+        shape="round"
+        routerLink="/add-food"
+        [queryParams]="{ meal: 'lunch' }"
+        >+</ion-button
+      >
+    </div>
+
+    <div class="meal-card">
+      <div>
+        <div class="meal-name">Abendessen</div>
+        <div class="meal-kcal">{{ diary.getMealCalories('dinner') }} kcal</div>
+      </div>
+      <ion-button
+        size="small"
+        shape="round"
+        routerLink="/add-food"
+        [queryParams]="{ meal: 'dinner' }"
+        >+</ion-button
+      >
+    </div>
+
+    <div class="meal-card">
+      <div>
+        <div class="meal-name">Snack</div>
+        <div class="meal-kcal">{{ diary.getMealCalories('snack') }} kcal</div>
+      </div>
+      <ion-button
+        size="small"
+        shape="round"
+        routerLink="/add-food"
+        [queryParams]="{ meal: 'snack' }"
+        >+</ion-button
+      >
+    </div>
+  </div>
   <h2>Heute gegessen</h2>
   @for (entry of diary.entries; track entry.id) {
   <p>

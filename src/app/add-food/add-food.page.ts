@@ -1,5 +1,5 @@
 import { Component, inject } from "@angular/core";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import {
   IonButton,
@@ -36,6 +36,7 @@ import { Diary, MealType } from "../services/diary";
 export class AddFoodPage {
   private diary = inject(Diary);
   private router = inject(Router);
+  private route = inject(ActivatedRoute);
 
   name = "";
   meal: MealType = "lunch";
@@ -45,6 +46,12 @@ export class AddFoodPage {
   fatPer100 = 0;
   carbsPer100 = 0;
 
+  constructor() {
+    const meal = this.route.snapshot.queryParamMap.get("meal");
+    if (meal) {
+      this.meal = meal as MealType;
+    }
+  }
   save(): void {
     const factor = this.grams / 100;
     this.diary.addEntry({
