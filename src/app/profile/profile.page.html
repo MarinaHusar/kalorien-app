@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Meine Werte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-select label="Geschlecht" [(ngModel)]="sex">
+        <ion-select-option value="female">Frau</ion-select-option>
+        <ion-select-option value="male">Mann</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Alter" type="number" [(ngModel)]="age"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Größe (cm)"
+        type="number"
+        [(ngModel)]="heightCm"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Gewicht (kg)"
+        type="number"
+        [(ngModel)]="weightKg"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select label="Aktivität" [(ngModel)]="activityLevel">
+        <ion-select-option value="low">Niedrig</ion-select-option>
+        <ion-select-option value="moderate">Mittel</ion-select-option>
+        <ion-select-option value="high">Hoch</ion-select-option>
+        <ion-select-option value="veryHigh">Sehr hoch</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-select label="Ziel" [(ngModel)]="goal">
+        <ion-select-option value="lose">Abnehmen</ion-select-option>
+        <ion-select-option value="maintain">Gewicht halten</ion-select-option>
+        <ion-select-option value="gain">Zunehmen</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <h2>Deine Tagesnorm</h2>
+  <p>Kalorien: {{ targets.calories }} kcal</p>
+  <p>Eiweiß: {{ targets.protein }} g</p>
+  <p>Fett: {{ targets.fat }} g</p>
+  <p>Kohlenhydrate: {{ targets.carbs }} g</p>
+</ion-content>
