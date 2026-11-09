@@ -22,6 +22,21 @@
   <p>Mittagessen: {{ diary.getMealCalories('lunch') }} kcal</p>
   <p>Abendessen: {{ diary.getMealCalories('dinner') }} kcal</p>
   <p>Snack: {{ diary.getMealCalories('snack') }} kcal</p>
+  <h2>Heute gegessen</h2>
+  @for (entry of diary.entries; track entry.id) {
+  <p>
+    {{ entry.name }}, {{ entry.grams }} g, {{ entry.calories }} kcal
+    <ion-button
+      size="small"
+      fill="clear"
+      color="danger"
+      (click)="diary.removeEntry(entry.id)"
+      >Löschen</ion-button
+    >
+  </p>
+  } @empty {
+  <p>Noch nichts eingetragen.</p>
+  }
   <ion-button expand="block" routerLink="/add-food"
     >Produkt hinzufügen</ion-button
   >
