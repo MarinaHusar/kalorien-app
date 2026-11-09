@@ -11,12 +11,7 @@ import {
   IonSelect,
   IonSelectOption,
 } from "@ionic/angular";
-import {
-  ActivityLevel,
-  Calculator,
-  Goal,
-  NutritionTargets,
-} from "../services/calculator";
+import { UserProfile } from "../services/user-profile";
 
 @Component({
   selector: "app-profile",
@@ -36,23 +31,5 @@ import {
   ],
 })
 export class ProfilePage {
-  private calculator = inject(Calculator);
-
-  sex: "female" | "male" = "female";
-  age = 30;
-  heightCm = 168;
-  weightKg = 60;
-  activityLevel: ActivityLevel = "moderate";
-  goal: Goal = "lose";
-
-  get targets(): NutritionTargets {
-    const bmr = this.calculator.calculateBmr(
-      this.sex,
-      this.age,
-      this.heightCm,
-      this.weightKg,
-    );
-    const tdee = this.calculator.calculateTdee(bmr, this.activityLevel);
-    return this.calculator.calculateTargets(tdee, this.goal, this.weightKg);
-  }
+  profile = inject(UserProfile);
 }
