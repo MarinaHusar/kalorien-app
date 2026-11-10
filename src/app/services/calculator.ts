@@ -22,6 +22,18 @@ export class Calculator {
     const base = 10 * weightKg + 6.25 * heightCm - 5 * age;
     return sex === "male" ? base + 5 : base - 161;
   }
+  estimateBodyFat(
+    sex: string,
+    age: number,
+    heightCm: number,
+    weightKg: number,
+  ): number {
+    const heightM = heightCm / 100;
+    const bmi = weightKg / (heightM * heightM);
+    const sexFactor = sex === "male" ? 1 : 0;
+    const bodyFat = 1.2 * bmi + 0.23 * age - 10.8 * sexFactor - 5.4;
+    return Math.round(bodyFat * 10) / 10;
+  }
   calculateTdee(bmr: number, activityLevel: ActivityLevel): number {
     const factors = {
       low: 1.2,

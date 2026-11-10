@@ -162,27 +162,4 @@
       >
     </div>
   </div>
-  @if (selectedMeal) {
-  <div class="meal-entries">
-    @for (entry of selectedEntries; track entry.id) {
-    <div class="entry-row">
-      <div class="entry-info">
-        <div class="entry-name">{{ entry.name }}</div>
-        <div class="entry-details">
-          {{ entry.grams }} g · {{ entry.calories }} kcal
-        </div>
-      </div>
-      <button
-        class="delete-button"
-        type="button"
-        (click)="diary.removeEntry(entry.id)"
-      >
-        ×
-      </button>
-    </div>
-    } @empty {
-    <p>Noch nichts eingetragen.</p>
-    }
-  </div>
-  }
 </ion-content>

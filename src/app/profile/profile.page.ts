@@ -1,5 +1,5 @@
 import { Component, inject } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import {
   IonButton,
@@ -35,6 +35,7 @@ import { UserProfile } from "../services/user-profile";
     FormsModule,
     IonBackButton,
     IonButtons,
+    RouterLink,
   ],
 })
 export class ProfilePage {
