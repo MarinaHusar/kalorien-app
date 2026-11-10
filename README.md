@@ -2,6 +2,8 @@
 
 A calorie and nutrition tracking app built as a learning project with Angular and Ionic. It calculates a personal daily calorie and macro target and lets you log meals, water and body measurements.
 
+**Live demo:** [kalorien-app-husar.netlify.app](https://kalorien-app-husar.netlify.app)
+
 ## Features
 
 - **Personal targets:** daily calories and macros (protein, fat, carbs) calculated from sex, age, height, weight, activity level and goal (Mifflin-St Jeor formula)
