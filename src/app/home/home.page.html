@@ -74,22 +74,23 @@
       ></div>
     </div>
   </div>
-  <h2>Wasser</h2>
   <div class="water-card">
-    <div class="macro-header">
-      <span>{{ water.amountMl }} / {{ water.goalMl }} ml</span>
+    <div class="water-header">
+      <span class="water-title">Wasser</span>
+      <div class="water-controls">
+        <span class="water-amount">{{ water.amountMl }} ml</span>
+        <button class="glass-button" type="button" (click)="water.add(250)">
+          +
+        </button>
+        <button class="glass-button" type="button" (click)="water.undo(250)">
+          −
+        </button>
+      </div>
     </div>
-    <div class="bar">
-      <div
-        class="bar-fill water"
-        [style.width.%]="percent(water.amountMl, water.goalMl)"
-      ></div>
-    </div>
-    <div class="water-buttons">
-      <ion-button size="small" (click)="water.add(250)">+ 250 ml</ion-button>
-      <ion-button size="small" fill="outline" (click)="water.undo(250)"
-        >− 250 ml</ion-button
-      >
+    <div class="water-glasses">
+      @for (glass of glasses; track glass) {
+      <div class="glass" [class.filled]="glass * 250 <= water.amountMl"></div>
+      }
     </div>
   </div>
   <h2>Mahlzeiten</h2>

@@ -22,6 +22,12 @@ export class HomePage {
   profile = inject(UserProfile);
   water = inject(Water);
 
+  get glasses(): number[] {
+    const needed = Math.max(this.water.goalMl, this.water.amountMl);
+    const count = Math.ceil(needed / 250);
+    return Array.from({ length: count }, (_, index) => index + 1);
+  }
+
   get remainingCalories(): number {
     return this.profile.targets.calories - this.diary.getTotals().calories;
   }

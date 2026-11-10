@@ -168,16 +168,66 @@ ion-button {
   line-height: 1;
   cursor: pointer;
 }
-.bar-fill.water {
-  background: #4fb3ff;
-}
-
 .water-card {
+  background: #1b2531;
+  border-radius: 14px;
+  padding: 14px 16px;
   margin-bottom: 8px;
 }
 
-.water-buttons {
+.water-header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.water-amount {
+  color: #4fb3ff;
+}
+
+.water-controls {
+  display: flex;
+  align-items: center;
   gap: 8px;
-  margin-top: 12px;
+}
+
+.water-glasses {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 28px);
+  justify-content: space-between;
+  gap: 10px 8px;
+}
+
+.glass-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.glass {
+  width: 28px;
+  height: 36px;
+  flex-shrink: 0;
+  background: #2b3949;
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+  border-radius: 4px 4px 8px 8px;
+}
+
+.glass.filled {
+  background: #4fb3ff;
+}
+
+.glass-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid #5bd6a0;
+  background: transparent;
+  color: #5bd6a0;
+  font-size: 20px;
+  cursor: pointer;
 }
