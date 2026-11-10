@@ -168,3 +168,16 @@ ion-button {
   line-height: 1;
   cursor: pointer;
 }
+.bar-fill.water {
+  background: #4fb3ff;
+}
+
+.water-card {
+  margin-bottom: 8px;
+}
+
+.water-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}

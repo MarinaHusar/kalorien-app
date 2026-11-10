@@ -9,6 +9,7 @@ import {
 } from "@ionic/angular";
 import { Diary } from "../services/diary";
 import { UserProfile } from "../services/user-profile";
+import { Water } from "../services/water";
 
 @Component({
   selector: "app-home",
@@ -19,10 +20,12 @@ import { UserProfile } from "../services/user-profile";
 export class HomePage {
   diary = inject(Diary);
   profile = inject(UserProfile);
+  water = inject(Water);
 
   get remainingCalories(): number {
     return this.profile.targets.calories - this.diary.getTotals().calories;
   }
+
   get ringDash(): string {
     const target = this.profile.targets.calories;
     const eaten = this.diary.getTotals().calories;
@@ -30,6 +33,7 @@ export class HomePage {
     const circumference = 339.3;
     return `${progress * circumference} ${circumference}`;
   }
+
   percent(value: number, target: number): number {
     return Math.min((value / target) * 100, 100);
   }

@@ -74,7 +74,24 @@
       ></div>
     </div>
   </div>
-
+  <h2>Wasser</h2>
+  <div class="water-card">
+    <div class="macro-header">
+      <span>{{ water.amountMl }} / {{ water.goalMl }} ml</span>
+    </div>
+    <div class="bar">
+      <div
+        class="bar-fill water"
+        [style.width.%]="percent(water.amountMl, water.goalMl)"
+      ></div>
+    </div>
+    <div class="water-buttons">
+      <ion-button size="small" (click)="water.add(250)">+ 250 ml</ion-button>
+      <ion-button size="small" fill="outline" (click)="water.undo(250)"
+        >− 250 ml</ion-button
+      >
+    </div>
+  </div>
   <h2>Mahlzeiten</h2>
 
   <div class="meals">
