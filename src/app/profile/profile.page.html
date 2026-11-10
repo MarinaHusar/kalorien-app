@@ -25,6 +25,7 @@
         label-placement="stacked"
         label="Alter"
         type="number"
+        [clearInput]="true"
         [(ngModel)]="profile.age"
       ></ion-input>
     </ion-item>
@@ -34,6 +35,7 @@
         label-placement="stacked"
         label="Größe (cm)"
         type="number"
+        [clearInput]="true"
         [(ngModel)]="profile.heightCm"
       ></ion-input>
     </ion-item>
@@ -43,6 +45,7 @@
         label-placement="stacked"
         label="Gewicht (kg)"
         type="number"
+        [clearInput]="true"
         [(ngModel)]="profile.weightKg"
       ></ion-input>
     </ion-item>

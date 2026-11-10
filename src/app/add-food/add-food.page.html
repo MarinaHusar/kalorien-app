@@ -14,6 +14,7 @@
         label-placement="stacked"
         label="Produkt suchen"
         placeholder="z. B. Banane"
+        [clearInput]="true"
         [(ngModel)]="searchQuery"
         (keyup.enter)="search()"
       ></ion-input>
@@ -44,6 +45,7 @@
       <ion-input
         label-placement="stacked"
         label="Name"
+        [clearInput]="true"
         [(ngModel)]="name"
       ></ion-input>
     </ion-item>
@@ -62,6 +64,7 @@
         label-placement="stacked"
         label="Menge (g)"
         type="number"
+        [clearInput]="true"
         [(ngModel)]="grams"
       ></ion-input>
     </ion-item>
@@ -71,6 +74,7 @@
         label-placement="stacked"
         label="kcal pro 100 g"
         type="number"
+        [clearInput]="true"
         [(ngModel)]="caloriesPer100"
       ></ion-input>
     </ion-item>
@@ -80,6 +84,7 @@
         label-placement="stacked"
         label="Eiweiß pro 100 g"
         type="number"
+        [clearInput]="true"
         [(ngModel)]="proteinPer100"
       ></ion-input>
     </ion-item>
@@ -89,6 +94,7 @@
         label-placement="stacked"
         label="Fett pro 100 g"
         type="number"
+        [clearInput]="true"
         [(ngModel)]="fatPer100"
       ></ion-input>
     </ion-item>
@@ -98,6 +104,7 @@
         label-placement="stacked"
         label="Kohlenhydrate pro 100 g"
         type="number"
+        [clearInput]="true"
         [(ngModel)]="carbsPer100"
       ></ion-input>
     </ion-item>

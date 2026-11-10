@@ -68,3 +68,6 @@ ion-alert .alert-radio-group .alert-tappable {
 ion-alert .alert-radio-group .alert-tappable:last-child {
   border-bottom: none;
 }
+ion-select::part(icon) {
+  transform: translateX(-5px);
+}
