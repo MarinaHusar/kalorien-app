@@ -72,6 +72,7 @@ ion-select::part(icon) {
   transform: translateX(-5px);
 }
 ion-content::part(scroll) {
+  padding-bottom: 90px;
   scrollbar-width: thin;
   scrollbar-color: #2b3949 transparent;
 }
@@ -105,4 +106,8 @@ ion-header::after {
 ion-title {
   font-size: 17px;
   font-weight: 700;
+}
+ion-app {
+  max-width: 480px;
+  margin: 0 auto;
 }
