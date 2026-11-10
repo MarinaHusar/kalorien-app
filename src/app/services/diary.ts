@@ -69,6 +69,31 @@ export class Diary {
       totals.fat += entry.fat;
       totals.carbs += entry.carbs;
     }
-    return totals;
+    return {
+      calories: totals.calories,
+      protein: Math.round(totals.protein * 10) / 10,
+      fat: Math.round(totals.fat * 10) / 10,
+      carbs: Math.round(totals.carbs * 10) / 10,
+    };
+  }
+  getCaloriesForLastDays(days: number): { label: string; calories: number }[] {
+    const result = [];
+    for (let i = days - 1; i >= 0; i--) {
+      const date = new Date();
+      date.setDate(date.getDate() - i);
+      const saved = localStorage.getItem(
+        "diary-" + date.toLocaleDateString("sv-SE"),
+      );
+      const entries: FoodEntry[] = saved ? JSON.parse(saved) : [];
+      let calories = 0;
+      for (const entry of entries) {
+        calories += entry.calories;
+      }
+      result.push({
+        label: date.toLocaleDateString("de-DE", { weekday: "short" }),
+        calories,
+      });
+    }
+    return result;
   }
 }

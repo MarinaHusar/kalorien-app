@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Statistik</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>Letzte 7 Tage</h2>
+
+  <div class="chart">
+    <div class="goal-line" [style.bottom.%]="barHeight(goal)"></div>
+    @for (day of days; track $index) {
+    <div class="chart-column">
+      <div class="chart-value">{{ day.calories || "" }}</div>
+      <div class="chart-bar" [style.height.%]="barHeight(day.calories)"></div>
+    </div>
+    }
+  </div>
+
+  <div class="chart-labels">
+    @for (day of days; track $index) {
+    <div class="chart-label">{{ day.label }}</div>
+    }
+  </div>
+
+  <p>Ziel: {{ goal }} kcal pro Tag</p>
+  <p>Durchschnitt: {{ average }} kcal</p>
+</ion-content>

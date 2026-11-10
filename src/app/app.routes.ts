@@ -18,4 +18,8 @@ export const routes: Routes = [
     path: 'add-food',
     loadComponent: () => import('./add-food/add-food.page').then((m) => m.AddFoodPage),
   },
+  {
+    path: 'statistics',
+    loadComponent: () => import('./statistics/statistics.page').then((m) => m.StatisticsPage),
+  },
 ];
