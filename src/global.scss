@@ -56,3 +56,15 @@ body,
   --ion-color-primary-shade: #50bd8d;
   --ion-color-primary-tint: #6cdbaa;
 }
+ion-alert.md,
+ion-alert.ios {
+  --background: #1b2531;
+}
+
+ion-alert .alert-radio-group .alert-tappable {
+  border-bottom: 1px solid #2b3949;
+}
+
+ion-alert .alert-radio-group .alert-tappable:last-child {
+  border-bottom: none;
+}
