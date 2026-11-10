@@ -111,3 +111,16 @@ ion-app {
   max-width: 480px;
   margin: 0 auto;
 }
+@media (min-width: 600px) and (min-height: 760px) {
+  ion-app {
+    max-height: 844px;
+    margin: auto;
+    border: 8px solid #1b2531;
+    border-radius: 36px;
+    overflow: hidden;
+  }
+}
+html,
+body {
+  background: #080c11;
+}
