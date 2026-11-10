@@ -34,4 +34,12 @@ ionic serve
 
 ## Screenshots
 
-(coming soon)
+<p>
+  <img src="docs/screenshots/home.png" width="200" alt="Home" />
+  <img src="docs/screenshots/add-food.png" width="200" alt="Product search" />
+  <img src="docs/screenshots/meal.png" width="200" alt="Meal details" />
+</p>
+<p>
+  <img src="docs/screenshots/statistics.png" width="200" alt="Statistics" />
+  <img src="docs/screenshots/body.png" width="200" alt="Body measurements" />
+</p>
