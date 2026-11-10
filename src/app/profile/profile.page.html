@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
     <ion-title>Meine Werte</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -7,7 +10,11 @@
 <ion-content class="ion-padding">
   <ion-list>
     <ion-item>
-      <ion-select label="Geschlecht" [(ngModel)]="profile.sex">
+      <ion-select
+        label-placement="stacked"
+        label="Geschlecht"
+        [(ngModel)]="profile.sex"
+      >
         <ion-select-option value="female">Frau</ion-select-option>
         <ion-select-option value="male">Mann</ion-select-option>
       </ion-select>
@@ -15,6 +22,7 @@
 
     <ion-item>
       <ion-input
+        label-placement="stacked"
         label="Alter"
         type="number"
         [(ngModel)]="profile.age"
@@ -23,6 +31,7 @@
 
     <ion-item>
       <ion-input
+        label-placement="stacked"
         label="Größe (cm)"
         type="number"
         [(ngModel)]="profile.heightCm"
@@ -31,6 +40,7 @@
 
     <ion-item>
       <ion-input
+        label-placement="stacked"
         label="Gewicht (kg)"
         type="number"
         [(ngModel)]="profile.weightKg"
@@ -38,7 +48,11 @@
     </ion-item>
 
     <ion-item>
-      <ion-select label="Aktivität" [(ngModel)]="profile.activityLevel">
+      <ion-select
+        label-placement="stacked"
+        label="Aktivität"
+        [(ngModel)]="profile.activityLevel"
+      >
         <ion-select-option value="low">Niedrig</ion-select-option>
         <ion-select-option value="moderate">Mittel</ion-select-option>
         <ion-select-option value="high">Hoch</ion-select-option>
@@ -47,7 +61,11 @@
     </ion-item>
 
     <ion-item>
-      <ion-select label="Ziel" [(ngModel)]="profile.goal">
+      <ion-select
+        label-placement="stacked"
+        label="Ziel"
+        [(ngModel)]="profile.goal"
+      >
         <ion-select-option value="lose">Abnehmen</ion-select-option>
         <ion-select-option value="maintain">Gewicht halten</ion-select-option>
         <ion-select-option value="gain">Zunehmen</ion-select-option>
@@ -60,5 +78,6 @@
   <p>Eiweiß: {{ profile.targets.protein }} g</p>
   <p>Fett: {{ profile.targets.fat }} g</p>
   <p>Kohlenhydrate: {{ profile.targets.carbs }} g</p>
+
   <ion-button expand="block" (click)="save()">Speichern</ion-button>
 </ion-content>

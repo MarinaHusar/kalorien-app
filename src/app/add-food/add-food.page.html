@@ -10,11 +10,15 @@
 <ion-content class="ion-padding">
   <ion-list>
     <ion-item>
-      <ion-input label="Name" [(ngModel)]="name"></ion-input>
+      <ion-input
+        label-placement="stacked"
+        label="Name"
+        [(ngModel)]="name"
+      ></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-select label="Mahlzeit" [(ngModel)]="meal">
+      <ion-select label-placement="stacked" label="Mahlzeit" [(ngModel)]="meal">
         <ion-select-option value="breakfast">Frühstück</ion-select-option>
         <ion-select-option value="lunch">Mittagessen</ion-select-option>
         <ion-select-option value="dinner">Abendessen</ion-select-option>
@@ -24,6 +28,7 @@
 
     <ion-item>
       <ion-input
+        label-placement="stacked"
         label="Menge (g)"
         type="number"
         [(ngModel)]="grams"
@@ -32,6 +37,7 @@
 
     <ion-item>
       <ion-input
+        label-placement="stacked"
         label="kcal pro 100 g"
         type="number"
         [(ngModel)]="caloriesPer100"
@@ -40,6 +46,7 @@
 
     <ion-item>
       <ion-input
+        label-placement="stacked"
         label="Eiweiß pro 100 g"
         type="number"
         [(ngModel)]="proteinPer100"
@@ -48,6 +55,7 @@
 
     <ion-item>
       <ion-input
+        label-placement="stacked"
         label="Fett pro 100 g"
         type="number"
         [(ngModel)]="fatPer100"
@@ -56,6 +64,7 @@
 
     <ion-item>
       <ion-input
+        label-placement="stacked"
         label="Kohlenhydrate pro 100 g"
         type="number"
         [(ngModel)]="carbsPer100"
