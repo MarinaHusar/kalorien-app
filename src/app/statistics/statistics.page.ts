@@ -9,6 +9,7 @@ import {
 } from "@ionic/angular";
 import { Diary } from "../services/diary";
 import { UserProfile } from "../services/user-profile";
+import { Water } from "../services/water";
 
 @Component({
   selector: "app-statistics",
@@ -26,9 +27,13 @@ import { UserProfile } from "../services/user-profile";
 export class StatisticsPage {
   private diary = inject(Diary);
   private profile = inject(UserProfile);
+  private water = inject(Water);
 
   days = this.diary.getCaloriesForLastDays(7);
   goal = this.profile.targets.calories;
+
+  waterDays = this.water.getAmountForLastDays(7);
+  waterGoal = this.water.goalMl;
 
   get maxValue(): number {
     return Math.max(this.goal, ...this.days.map((day) => day.calories));
@@ -36,6 +41,13 @@ export class StatisticsPage {
 
   barHeight(calories: number): number {
     return (calories / this.maxValue) * 100;
+  }
+  waterBarHeight(amountMl: number): number {
+    const max = Math.max(
+      this.waterGoal,
+      ...this.waterDays.map((day) => day.amountMl),
+    );
+    return (amountMl / max) * 100;
   }
 
   get average(): number {

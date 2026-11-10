@@ -28,4 +28,26 @@
 
   <p>Ziel: {{ goal }} kcal pro Tag</p>
   <p>Durchschnitt: {{ average }} kcal</p>
+  <h2>Wasser</h2>
+
+  <div class="chart">
+    <div class="goal-line" [style.bottom.%]="waterBarHeight(waterGoal)"></div>
+    @for (day of waterDays; track $index) {
+    <div class="chart-column">
+      <div class="chart-value">{{ day.amountMl || "" }}</div>
+      <div
+        class="chart-bar water"
+        [style.height.%]="waterBarHeight(day.amountMl)"
+      ></div>
+    </div>
+    }
+  </div>
+
+  <div class="chart-labels">
+    @for (day of waterDays; track $index) {
+    <div class="chart-label">{{ day.label }}</div>
+    }
+  </div>
+
+  <p>Ziel: {{ waterGoal }} ml pro Tag</p>
 </ion-content>

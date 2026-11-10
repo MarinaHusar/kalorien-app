@@ -96,7 +96,7 @@
   <h2>Mahlzeiten</h2>
 
   <div class="meals">
-    <div class="meal-card">
+    <div class="meal-card" [routerLink]="['/meal', 'breakfast']">
       <div>
         <div class="meal-name">Frühstück</div>
         <div class="meal-kcal">
@@ -106,13 +106,14 @@
       <ion-button
         size="small"
         shape="round"
+        (click)="$event.stopPropagation()"
         routerLink="/add-food"
         [queryParams]="{ meal: 'breakfast' }"
         >+</ion-button
       >
     </div>
 
-    <div class="meal-card">
+    <div class="meal-card" [routerLink]="['/meal', 'lunch']">
       <div>
         <div class="meal-name">Mittagessen</div>
         <div class="meal-kcal">{{ diary.getMealCalories('lunch') }} kcal</div>
@@ -120,13 +121,14 @@
       <ion-button
         size="small"
         shape="round"
+        (click)="$event.stopPropagation()"
         routerLink="/add-food"
         [queryParams]="{ meal: 'lunch' }"
         >+</ion-button
       >
     </div>
 
-    <div class="meal-card">
+    <div class="meal-card" [routerLink]="['/meal', 'dinner']">
       <div>
         <div class="meal-name">Abendessen</div>
         <div class="meal-kcal">{{ diary.getMealCalories('dinner') }} kcal</div>
@@ -134,13 +136,14 @@
       <ion-button
         size="small"
         shape="round"
+        (click)="$event.stopPropagation()"
         routerLink="/add-food"
         [queryParams]="{ meal: 'dinner' }"
         >+</ion-button
       >
     </div>
 
-    <div class="meal-card">
+    <div class="meal-card" [routerLink]="['/meal', 'snack']">
       <div>
         <div class="meal-name">Snack</div>
         <div class="meal-kcal">{{ diary.getMealCalories('snack') }} kcal</div>
@@ -148,39 +151,34 @@
       <ion-button
         size="small"
         shape="round"
+        (click)="$event.stopPropagation()"
         routerLink="/add-food"
         [queryParams]="{ meal: 'snack' }"
         >+</ion-button
       >
     </div>
   </div>
-  <h2>Heute gegessen</h2>
-  @for (entry of diary.entries; track entry.id) {
-  <div class="entry-row">
-    <div class="entry-info">
-      <div class="entry-name">{{ entry.name }}</div>
-      <div class="entry-details">
-        {{ entry.grams }} g · {{ entry.calories }} kcal
+  @if (selectedMeal) {
+  <div class="meal-entries">
+    @for (entry of selectedEntries; track entry.id) {
+    <div class="entry-row">
+      <div class="entry-info">
+        <div class="entry-name">{{ entry.name }}</div>
+        <div class="entry-details">
+          {{ entry.grams }} g · {{ entry.calories }} kcal
+        </div>
       </div>
+      <button
+        class="delete-button"
+        type="button"
+        (click)="diary.removeEntry(entry.id)"
+      >
+        ×
+      </button>
     </div>
-    <button
-      class="delete-button"
-      type="button"
-      (click)="diary.removeEntry(entry.id)"
-    >
-      ×
-    </button>
+    } @empty {
+    <p>Noch nichts eingetragen.</p>
+    }
   </div>
-  } @empty {
-  <p>Noch nichts eingetragen.</p>
   }
-  <ion-button expand="block" routerLink="/add-food"
-    >Produkt hinzufügen</ion-button
-  >
-  <ion-button expand="block" fill="outline" routerLink="/statistics"
-    >Statistik</ion-button
-  >
-  <ion-button expand="block" fill="outline" routerLink="/profile"
-    >Meine Werte</ion-button
-  >
 </ion-content>

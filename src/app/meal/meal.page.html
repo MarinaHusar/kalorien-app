@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <p class="summary">{{ calories }} kcal</p>
+
+  @for (entry of entries; track entry.id) {
+  <div class="entry-row">
+    <div class="entry-info">
+      <div class="entry-name">{{ entry.name }}</div>
+      <div class="entry-details">
+        {{ entry.grams }} g · {{ entry.calories }} kcal
+      </div>
+    </div>
+    <button
+      class="delete-button"
+      type="button"
+      (click)="diary.removeEntry(entry.id)"
+    >
+      ×
+    </button>
+  </div>
+  } @empty {
+  <p>Noch nichts eingetragen.</p>
+  }
+
+  <ion-button
+    expand="block"
+    routerLink="/add-food"
+    [queryParams]="{ meal: meal }"
+    >Produkt hinzufügen</ion-button
+  >
+</ion-content>

@@ -71,3 +71,6 @@ ion-alert .alert-radio-group .alert-tappable:last-child {
 ion-select::part(icon) {
   transform: translateX(-5px);
 }
+ion-content::part(scroll) {
+  padding-bottom: 90px;
+}
