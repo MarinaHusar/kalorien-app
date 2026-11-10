@@ -12,6 +12,37 @@
     <ion-item>
       <ion-input
         label-placement="stacked"
+        label="Produkt suchen"
+        placeholder="z. B. Banane"
+        [(ngModel)]="searchQuery"
+        (keyup.enter)="search()"
+      ></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" (click)="search()">Suchen</ion-button>
+
+  @if (isSearching) {
+  <p class="ion-padding-top">Suche läuft...</p>
+  } @if (results.length > 0) {
+  <ion-list>
+    @for (product of results; track $index) {
+    <ion-item button (click)="selectProduct(product)">
+      <ion-label>
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.calories }} kcal pro 100 g</p>
+      </ion-label>
+    </ion-item>
+    }
+  </ion-list>
+  } @else if (searchDone) {
+  <p class="ion-padding-top">Nichts gefunden.</p>
+  }
+
+  <ion-list>
+    <ion-item>
+      <ion-input
+        label-placement="stacked"
         label="Name"
         [(ngModel)]="name"
       ></ion-input>

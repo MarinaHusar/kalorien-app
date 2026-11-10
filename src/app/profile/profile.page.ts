@@ -12,6 +12,8 @@ import {
   IonInput,
   IonSelect,
   IonSelectOption,
+  IonBackButton,
+  IonButtons,
 } from "@ionic/angular";
 import { UserProfile } from "../services/user-profile";
 
@@ -31,6 +33,8 @@ import { UserProfile } from "../services/user-profile";
     IonSelect,
     IonSelectOption,
     FormsModule,
+    IonBackButton,
+    IonButtons,
   ],
 })
 export class ProfilePage {
