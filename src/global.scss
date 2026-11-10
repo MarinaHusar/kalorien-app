@@ -74,3 +74,21 @@ ion-select::part(icon) {
 ion-content::part(scroll) {
   padding-bottom: 90px;
 }
+ion-header ion-toolbar {
+  --background: #0f1720;
+  --border-width: 0 !important;
+  --min-height: 56px;
+  --padding-top: calc(var(--ion-safe-area-top, 0px) + 6px);
+  --padding-bottom: 6px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+}
+
+ion-header::after {
+  display: none;
+}
+
+ion-title {
+  font-size: 17px;
+  font-weight: 700;
+}

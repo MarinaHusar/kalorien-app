@@ -21,6 +21,11 @@ export class HomePage {
   diary = inject(Diary);
   profile = inject(UserProfile);
   water = inject(Water);
+  today = new Date().toLocaleDateString("de-DE", {
+    weekday: "short",
+    day: "numeric",
+    month: "long",
+  });
 
   get glasses(): number[] {
     const needed = Math.max(this.water.goalMl, this.water.amountMl);
