@@ -138,16 +138,21 @@
   </div>
   <h2>Heute gegessen</h2>
   @for (entry of diary.entries; track entry.id) {
-  <p>
-    {{ entry.name }}, {{ entry.grams }} g, {{ entry.calories }} kcal
-    <ion-button
-      size="small"
-      fill="clear"
-      color="danger"
+  <div class="entry-row">
+    <div class="entry-info">
+      <div class="entry-name">{{ entry.name }}</div>
+      <div class="entry-details">
+        {{ entry.grams }} g · {{ entry.calories }} kcal
+      </div>
+    </div>
+    <button
+      class="delete-button"
+      type="button"
       (click)="diary.removeEntry(entry.id)"
-      >Löschen</ion-button
     >
-  </p>
+      ×
+    </button>
+  </div>
   } @empty {
   <p>Noch nichts eingetragen.</p>
   }
